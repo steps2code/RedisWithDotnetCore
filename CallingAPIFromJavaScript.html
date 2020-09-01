@@ -1,0 +1,26 @@
+<html>
+<head>
+<title>Redis WEB API Demo.</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {  
+       $.ajax({  
+           type: "GET",  
+           url: "https://localhost:44308/api/CountryMaster/",  
+           data: "{}",  
+           success: function (data) {  
+               var s = '<option value="-1">Please Select a Country</option>';  
+               for (var i = 0; i < data.length; i++) {  
+                   s += '<option value="' + data[i].code + '">' + data[i].name + '</option>';  
+               }  
+               $("#countryDropdown").html(s);  
+           }  
+       });  
+   });  
+</script>
+</head>
+<body>
+  <label><b>All Countries</b></label>  
+        <select class="form-control" id="countryDropdown" name="countryDropdown"></select>  
+</body>
+</html>
